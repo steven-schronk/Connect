@@ -2,6 +2,8 @@
 
 include 'dbconnector.php';
 
+include 'menu.php';
+
 if(!isset($_GET['group'])) { echo "No Group Entered"; die($no_group_entered); }
 
 $sql = 'select * from '. $_GET['group'];

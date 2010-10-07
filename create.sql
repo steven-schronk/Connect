@@ -7,6 +7,22 @@ create table phone_calls
 	PRIMARY KEY ( item_id )
 );
 
+create table customers
+(
+	item_id int AUTO_INCREMENT NOT NULL,
+	first_name varchar(255),
+	last_name varchar(255),
+	address varchar(255),
+	zip varchar(255),
+	home_phone varchar(255),
+	office_phone  varchar(255),
+	email_1  varchar(255),
+	email_2 varchar(255),
+	update_timestamp timestamp,
+	PRIMARY KEY ( item_id )
+);
+
+
 
 --CREATE TABLE $data_desc (
 --	data_desc_id int NOT NULL auto_increment,

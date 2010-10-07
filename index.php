@@ -11,7 +11,7 @@
 <body>
 
 <center><h2>Connect.</h2></center>
-
+<table border=1>
 <?php
 
 include 'dbconnector.php';
@@ -24,15 +24,15 @@ if (!mysql_query($sql)) {
 
 if ($result = mysql_query($sql)) {
 	while ($row = mysql_fetch_array($result)) {
-		echo "<a href=display.php?group=".$row[0].">".$row[0]."</a>&nbsp;";
-		echo "<a href=new.php?group=".$row[0]."> New ".$row[0]."</a>";
+		echo "<tr><td><a href=display.php?group=".$row[0].">".$row[0]."</a></td>";
+		echo "<td><a href=edit.php?group=".$row[0]."> New ".$row[0]."</a></td></tr>";
 
 	}
 }
 
 ?>
 
-
+</table>
 </body>
 
 </html>

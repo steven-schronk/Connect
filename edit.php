@@ -30,6 +30,7 @@ $data = mysql_fetch_array($data);
 
 echo '<form action="edit.php" method="get">';
 echo '<input name=group type=hidden value="'.$_GET['group'].'">';
+echo '<input name=action type=hidden value="update">';
 
 if(isset($_GET['item'])) {
 	echo '<input name=item type=hidden value="'.$_GET['item'].'">';
@@ -40,7 +41,7 @@ $sql = 'insert into '.$_GET['group'];
 /* Loop through $_GET and add values from form to insert into database */
 while (list($column,$value) = each($_GET)){
 	echo "Key: ".$column . "->Value: ".$value."<br />";
-	if($column != 'group') {
+	if($column != 'group' && $column != 'action') {
 		$columns .= $column.',';
 		$values .=  '"'.$value.'",';
 	}
@@ -53,7 +54,7 @@ $sql .= '('.$columns.') values ('.$values.')';
 
 echo $sql.'<br>';
 
-$data = mysql_query($sql);
+if($_GET['action'] == 'update'){ echo "<br><br>Updating Database<br><br>"; $data = mysql_query($sql); }
 
 }
 

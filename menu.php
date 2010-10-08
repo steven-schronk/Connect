@@ -11,8 +11,10 @@ if (!mysql_query($sql)) {
 
 if ($result = mysql_query($sql)) {
 	while ($row = mysql_fetch_array($result)) {
-		echo "<tr><td><a href=display.php?group=".$row[0].">".$row[0]."</a></td>";
-		echo "<td><a href=edit.php?group=".$row[0]."> New ".$row[0]."</a></td></tr>";
+		if(strpos($row[0],'$') === false){
+			echo "<tr><td><a href=display.php?group=".$row[0].">".$row[0]."</a></td>";
+			echo "<td><a href=edit.php?group=".$row[0]."> add ".$row[0]."</a></td></tr>";
+		}
 
 	}
 }

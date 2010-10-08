@@ -18,6 +18,9 @@ include 'menu.php';
 
 if(!isset($_GET['group'])) { echo "No Group Entered"; die($no_group_entered); }
 
+echo '<h2>'.$_GET['group'].'</h2>';
+
+
 /* get description of table */
 $sql = 'desc '. $_GET['group'];
 

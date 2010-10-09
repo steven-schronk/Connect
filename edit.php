@@ -118,7 +118,9 @@ while ($row = mysql_fetch_array($desc))
 				$found++;
 				/* get connection list from db and create a dropdown */
 
-				$sql = 'select item_id, '. $conn[$i]['parent_display_1'].' from '. $conn[$con_count]['parent_table'];
+				$sql = 'select item_id, '. $conn[$j]['parent_display_1'].' from '. $conn[$j]['parent_table'];
+
+				/* echo $sql; */
 
 				$option = mysql_query($sql);
 

@@ -26,9 +26,39 @@ create table phone_calls
 	item_id int AUTO_INCREMENT NOT NULL,
 	first_name varchar(255),
 	last_name varchar(255),
+	start_time datetime,
+	stop_time datetime,
+	comments varchar(255),
 	update_timestamp timestamp,
 	PRIMARY KEY ( item_id )
 );
+
+create table ledger
+(
+	item_id int AUTO_INCREMENT NOT NULL,
+	customer_id int,
+	debit float,
+	credit float,
+	category_id int,
+	transaction_time datetime,
+	comments varchar(255),
+	update_timestamp timestamp,
+	PRIMARY KEY ( item_id )
+);	
+
+-- customer_id is foreign key to customers table
+-- category_id is foreign key to category table
+
+
+create table category
+(
+	item_id int AUTO_INCREMENT NOT NULL,
+	name varchar(255),
+	comments varchar(255),
+	update_timestamp timestamp,
+	PRIMARY KEY ( item_id )
+);	
+
 
 create table customers
 (
